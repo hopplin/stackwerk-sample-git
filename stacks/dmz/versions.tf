@@ -4,7 +4,7 @@ terraform {
   required_providers {
     vsphere = {
       source  = "vmware/vsphere"
-      version = ">= 2.0"
+      version = "~> 2.10"
     }
     nsxt = {
       source  = "vmware/nsxt"

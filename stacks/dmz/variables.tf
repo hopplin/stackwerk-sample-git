@@ -103,7 +103,6 @@ variable "domain_join_password" {
   type        = string
   description = "Password of the account that joins machines to the domain."
   sensitive   = true
-  default     = "Sommer2024!"
 }
 
 variable "docker_ssh_key" {
