@@ -3,10 +3,11 @@ datacenter     = "dc-nord"
 nameservers    = ["10.10.30.10", "10.10.30.11"]
 
 networks = {
-  frontend = { vlan = 100, cidr = "10.10.0.0/24", gateway = "10.10.0.1", inbound = true }
-  backend  = { vlan = 110, cidr = "10.10.10.0/24", gateway = "10.10.10.1", inbound = false }
-  data     = { vlan = 120, cidr = "10.10.20.0/24", gateway = "10.10.20.1", inbound = false }
-  mgmt     = { vlan = 130, cidr = "10.10.30.0/24", gateway = "10.10.30.1", inbound = false }
+  frontend   = { vlan = 100, cidr = "10.10.0.0/24", gateway = "10.10.0.1", inbound = true }
+  backend    = { vlan = 110, cidr = "10.10.10.0/24", gateway = "10.10.10.1", inbound = false }
+  data       = { vlan = 120, cidr = "10.10.20.0/24", gateway = "10.10.20.1", inbound = false }
+  mgmt       = { vlan = 130, cidr = "10.10.30.0/24", gateway = "10.10.30.1", inbound = false }
+  monitoring = { vlan = 140, cidr = "10.10.40.0/24", gateway = "10.10.40.1", inbound = false }
 }
 
 web_servers = {
@@ -179,9 +180,12 @@ ldap_servers = {
 }
 
 monitoring_servers = {
-  "monitoring-nord-01" = { cluster = "prod-a", cpus = 4, memory_gb = 16, ip = "10.10.30.15" }
-  "monitoring-nord-02" = { cluster = "prod-a", cpus = 4, memory_gb = 16, ip = "10.10.30.16" }
-  "monitoring-nord-03" = { cluster = "prod-a", cpus = 4, memory_gb = 16, ip = "10.10.30.17" }
-  "monitoring-nord-04" = { cluster = "prod-a", cpus = 4, memory_gb = 16, ip = "10.10.30.18" }
-  "monitoring-nord-05" = { cluster = "prod-a", cpus = 4, memory_gb = 16, ip = "10.10.30.19" }
+  "monitoring-nord-01" = { cluster = "prod-b", cpus = 4, memory_gb = 16, ip = "10.10.40.11" }
+  "monitoring-nord-02" = { cluster = "prod-a", cpus = 4, memory_gb = 16, ip = "10.10.40.12" }
+  "monitoring-nord-03" = { cluster = "prod-b", cpus = 4, memory_gb = 16, ip = "10.10.40.13" }
+  "monitoring-nord-04" = { cluster = "prod-a", cpus = 4, memory_gb = 16, ip = "10.10.40.14" }
+  "monitoring-nord-05" = { cluster = "prod-b", cpus = 4, memory_gb = 16, ip = "10.10.40.15" }
+  "monitoring-nord-06" = { cluster = "prod-a", cpus = 4, memory_gb = 16, ip = "10.10.40.16" }
+  "monitoring-nord-07" = { cluster = "prod-b", cpus = 4, memory_gb = 16, ip = "10.10.40.17" }
+  "monitoring-nord-08" = { cluster = "prod-a", cpus = 4, memory_gb = 16, ip = "10.10.40.18" }
 }
