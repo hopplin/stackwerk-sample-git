@@ -1,0 +1,89 @@
+{
+  "schema": 1,
+  "id": "vm-modules",
+  "title": "VM modules of this repository",
+  "modules": [
+    {
+      "source": "*modules/vm-linux",
+      "kind": "machine",
+      "fields": {
+        "name": "name",
+        "folder": "folder",
+        "os": "guest_id",
+        "cpu": "cpus",
+        "address": "ip",
+        "memory": {
+          "path": "memory_gb",
+          "unit": "GiB"
+        },
+        "disk": {
+          "path": "disk_gb",
+          "unit": "GiB"
+        }
+      },
+      "tags": {
+        "path": "tags",
+        "mode": "reference"
+      },
+      "relations": [
+        {
+          "path": "resource_pool_id",
+          "kind": "pool"
+        },
+        {
+          "path": "datastore_id",
+          "kind": "storage"
+        },
+        {
+          "path": "network_id",
+          "kind": "network"
+        },
+        {
+          "path": "template_uuid",
+          "kind": "image"
+        }
+      ]
+    },
+    {
+      "source": "*modules/vm-windows",
+      "kind": "machine",
+      "fields": {
+        "name": "name",
+        "folder": "folder",
+        "os": "guest_id",
+        "cpu": "cpus",
+        "address": "ip",
+        "memory": {
+          "path": "memory_gb",
+          "unit": "GiB"
+        },
+        "disk": {
+          "path": "disk_gb",
+          "unit": "GiB"
+        }
+      },
+      "tags": {
+        "path": "tags",
+        "mode": "reference"
+      },
+      "relations": [
+        {
+          "path": "resource_pool_id",
+          "kind": "pool"
+        },
+        {
+          "path": "datastore_id",
+          "kind": "storage"
+        },
+        {
+          "path": "network_id",
+          "kind": "network"
+        },
+        {
+          "path": "template_uuid",
+          "kind": "image"
+        }
+      ]
+    }
+  ]
+}

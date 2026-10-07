@@ -1,0 +1,22 @@
+# Asks stackwerk to fetch this repository right after a push, instead of waiting for its next interval.
+# Set the repository variable STACKWERK_SYNC_URL to the address stackwerk shows under
+# "Settings → Repositories → Call from a pipeline", and the secret STACKWERK_HOOK to the token generated there.
+# Without the variable the job is skipped. The runner must be able to reach stackwerk.
+name: stackwerk
+
+on:
+  push:
+
+permissions: {}
+
+jobs:
+  notify:
+    if: vars.STACKWERK_SYNC_URL != ''
+    runs-on: ubuntu-latest
+    timeout-minutes: 2
+    steps:
+      - name: Ask stackwerk to fetch this repository
+        env:
+          STACKWERK_SYNC_URL: ${{ vars.STACKWERK_SYNC_URL }}
+          STACKWERK_HOOK: ${{ secrets.STACKWERK_HOOK }}
+        run: 'curl -fsS -X POST -H "Authorization: Bearer $STACKWERK_HOOK" "$STACKWERK_SYNC_URL"'
